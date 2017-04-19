@@ -58,11 +58,11 @@ function create(params, callback) {
 
 
 function deletePromoter(params, callback) {
-	var updateUrl = URL +"/" +params.organisationId + "/promoters/"+ params.promoterId;
+	var deleteUrl = URL +"/" +params.organisationId + "/promoters/"+ params.promoterId;
 	var options = {
 		method: 'delete',
 		json: true,
-		url: updateUrl
+		url: deleteUrl
 	}
 
 	request(options, function (error, response, body) {
@@ -128,5 +128,6 @@ module.exports = {
 	getPromoters: getPromoters,
 	create: create,
 	updatePromoter: updatePromoter,
+	deletePromoter: deletePromoter,
 	getPromoterByCode: getPromoterByCode
 }
