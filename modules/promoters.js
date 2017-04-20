@@ -77,30 +77,6 @@ function updatePromoter(params, callback) {
  });
 };
 
-function deletePromoter(params, callback) {
- var deleteUrl = URL +"/" +params.organisationId + "/promoters/"+ params.promoterId;
- var options = {
-  method: 'delete',
-  json: true,
-  url: deleteUrl
- }
-
- request(options, function (error, response, body) {
-  if(!error && response.statusCode == constants.SUCCESS) {
-   var mapResponse = new MapResponse(body);
-   var newBody = mapResponse.mapData();
-
-   callback(null, response, newBody);
-  } else {
-   var mapResponse = new MapResponse(body);
-   var newBody = mapResponse.mapData();
-
-   callback(newBody, response, null);
-  }
- });
-
-}
-
 function getPromoterByCode(params, callback) {
  var organisationId = params.organisationId;
  var getUrl = URL+"/"+organisationId+"/promoter-code/"+params.promoterCode;
@@ -121,6 +97,5 @@ module.exports = {
  getPromoters: getPromoters,
  create: create,
  updatePromoter: updatePromoter,
- deletePromoter: deletePromoter, 
  getPromoterByCode: getPromoterByCode
 }
