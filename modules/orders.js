@@ -52,7 +52,7 @@ module.exports.createOrder = function(params, callback) {
 
 module.exports.udpateOrder = function(params, callback) {
 	var UPDATE_URL = URL+"/"+params.organisationId+"/orders/"+params.orderId;
-	var newParams = _.omit(params, ['organsiationId', '_id']);
+	var newParams = _.omit(params, ['organisationId', '_id']);
 	var options = {
 		url: UPDATE_URL,
 		method: 'put',
